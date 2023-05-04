@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<num1>2000</num1>
+<num2>1000</num2>
+<multiplicationOperation>x</multiplicationOperation>
+<addition>+</addition>
+<subtraction>-</subtraction>
+<division>/</division>
+<expectedResultConnectionPperation>3000</expectedResultConnectionPperation>
+<expectedResultDivisionOperation>2</expectedResultDivisionOperation>
+<subtractionOperationExpectedResult>1000</subtractionOperationExpectedResult>
+<expectedResultMultiplicationOperation>2000000</expectedResultMultiplicationOperation>
+</config>
