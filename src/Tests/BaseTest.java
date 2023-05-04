@@ -33,7 +33,8 @@ public class BaseTest {
     static String num2;
     static CalculatorPage calculatorPage;
 
-    public static void re(){
+    //constructor
+    public static void restCalculatorPage(){
         calculatorPage=new CalculatorPage(driver);
     }
 
@@ -50,9 +51,9 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         extent = new ExtentReports(reportFilePath);
         myTests = extent.startTest("ExtentDemo");
-        re();
+        restCalculatorPage();
     }
-
+//A function that receives a number of type String and taps that number
     public void chars(char number) {
         switch (number) {
             case '0': {
@@ -101,7 +102,7 @@ public class BaseTest {
             }
         }
     }
-
+    //A function that receives a calculated character of type String and taps it
     public void actions(String action) {
         switch (action) {
             case "+": {
@@ -122,7 +123,7 @@ public class BaseTest {
             }
         }
     }
-
+    // Read from file
     public String readFromFile(String KeyData) throws Exception {
         File xmlFile = new File(readFilePath);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -132,14 +133,14 @@ public class BaseTest {
         return doc.getElementsByTagName(KeyData).item(0).getTextContent();
     }
 
-
+//A function that accepts an element, extracts its text and removes all characters for comparison
     public String commaReplacement(WebElement element) {
         String result = element.getText();
         result = result.replaceAll(",", "");
         return result;
     }
 
-
+    // Take screenShot
     public String takeScreenShot(String imagePath) {
         TakesScreenshot takesScreenShot = (TakesScreenshot) driver;
         File screenShotFile = takesScreenShot.getScreenshotAs(OutputType.FILE);
@@ -151,14 +152,14 @@ public class BaseTest {
         }
         return imagePath + ".png";
     }
-
+//A function that accepts a number and goes through all its digits and passes it to the typing function
     public void splitNum(String number) {
         for (int i = 0; i < number.length(); i++) {
             chars(number.charAt(i));
         }
     }
 
-
+    //A function that receives an expected result ReadFromFile and compares with the actual result using AssertEqual
     public void assertions(String excepted){
         try {
             assertEquals(excepted,commaReplacement(calculatorPage.theResultAfterTheCalculation()));

@@ -25,6 +25,7 @@ public class CalculatorPage extends BasePage {
     WebElement equal = driver.findElement(By.id("com.sec.android.app.popupcalculator:id/calc_keypad_btn_equal"));
     WebElement result = driver.findElement(By.id("com.sec.android.app.popupcalculator:id/calc_tv_result"));
 
+    // Constructor
     public CalculatorPage(AndroidDriver driver) {
         super(driver);
     }
