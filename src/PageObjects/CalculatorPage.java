@@ -95,6 +95,7 @@ public class CalculatorPage extends BasePage {
 
     public void clickClear() {
         clickOnElement(clear);
+
     }
 
     public void clickEqual() {
